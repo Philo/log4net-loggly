@@ -17,6 +17,11 @@ namespace log4net.loggly
 		public string UserAgent { set { Config.UserAgent = value; } }
 		public int TimeoutInSeconds { set { Config.TimeoutInSeconds = value; } }
 
+        public LogglyBufferringAppender()
+        {
+            ActivateOptions();
+        }
+
 		protected override void Append(LoggingEvent loggingEvent)
 		{
 			Formatter.AppendAdditionalLoggingInformation(Config, loggingEvent);
